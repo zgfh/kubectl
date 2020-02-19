@@ -155,12 +155,10 @@ func (d *Helper) GetPodsForDeletion(nodeName string) (*podDeleteList, []error) {
 				break
 			}
 		}
-		if status.delete {
-			pods = append(pods, podDelete{
-				pod:    pod,
-				status: status,
-			})
-		}
+		pods = append(pods, podDelete{
+			pod:    pod,
+			status: status,
+		})
 	}
 
 	list := &podDeleteList{items: pods}
